@@ -6,7 +6,7 @@ EAPI=5
 # Corebird doesn't work correctly with out of source builds
 CMAKE_IN_SOURCE_BUILD=1
 
-inherit eutils cmake-utils gnome2
+inherit eutils cmake-utils gnome2-utils
 
 DESCRIPTION="Native GTK+3 Twitter client"
 HOMEPAGE="http://corebird.baedert.org/"
@@ -35,4 +35,22 @@ src_configure() {
 		$(cmake-utils_use glade CATALOG)
 	)
 	cmake-utils_src_configure
+}
+
+pkg_preinst() {
+	gnome2_icon_savelist
+	gnome2_schemas_savelist
+}
+
+update_caches() {
+	gnome2_schemas_update
+	gnome2_icon_cache_update
+}
+
+pkg_postinst() {
+	update_caches
+}
+
+pkg_postrm() {
+	update_caches
 }
