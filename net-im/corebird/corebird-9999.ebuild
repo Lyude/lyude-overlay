@@ -23,7 +23,8 @@ RDEPEND=">=x11-libs/gtk+-3.9
 	dev-libs/json-glib
 	x11-libs/libnotify
 	dev-db/sqlite:3
-	net-libs/libsoup:2.4"
+	>=net-libs/libsoup-2.42.3.1
+	>=dev-libs/libgee-0.8"
 DEPEND="${RDEPEND}
 	dev-lang/vala:0.22
 	>=dev-util/cmake-2.6"
