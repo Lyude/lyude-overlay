@@ -18,7 +18,7 @@ KEYWORDS="~x86 ~amd64"
 
 RDEPEND=">=x11-libs/gtk+-3.12
 	>=dev-libs/glib-2.40
-	net-libs/rest:0.7
+	>=net-libs/rest-0.7.91
 	dev-libs/json-glib
 	x11-libs/libnotify
 	dev-db/sqlite:3
