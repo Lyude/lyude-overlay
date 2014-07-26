@@ -13,7 +13,7 @@ HOMEPAGE="http://corebird.baedert.org/"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug glade"
+IUSE="debug glade gstreamer"
 
 RDEPEND=">=x11-libs/gtk+-3.12
 	>=dev-libs/glib-2.40
@@ -22,7 +22,8 @@ RDEPEND=">=x11-libs/gtk+-3.12
 	x11-libs/libnotify
 	dev-db/sqlite:3
 	>=net-libs/libsoup-2.42.3.1
-	>=dev-libs/libgee-0.8"
+	>=dev-libs/libgee-0.8
+	gstreamer? ( media-libs/gst-plugins-base )"
 DEPEND="${RDEPEND}
 	dev-lang/vala:0.24"
 VALA_MIN_API_VERSION="0.24"
@@ -39,6 +40,7 @@ src_configure() {
 		"--disable-schemas-compile"
 		$(use_enable debug)
 		$(use_enable glade catalog)
+		$(use_enable gstreamer video)
 	)
 	autotools-utils_src_configure
 }
