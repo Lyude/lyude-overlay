@@ -12,7 +12,6 @@ SRC_URI="https://github.com/baedert/corebird/archive/${PV}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
 IUSE="debug glade gstreamer"
 KEYWORDS="~x86 ~amd64"
 
