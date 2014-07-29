@@ -4,7 +4,9 @@
 
 EAPI=5
 
-inherit eutils autotools-utils gnome2-utils vala
+VALA_MIN_API_VERSION=0.22
+
+inherit eutils autotools gnome2-utils vala
 
 DESCRIPTION="Native GTK+3 Twitter client"
 HOMEPAGE="http://corebird.baedert.org/"
@@ -12,45 +14,36 @@ SRC_URI="https://github.com/baedert/corebird/archive/${PV}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="debug glade gstreamer"
 KEYWORDS="~x86 ~amd64"
+IUSE="debug glade gstreamer"
 
-RDEPEND=">=x11-libs/gtk+-3.12
+RDEPEND="dev-db/sqlite:3
 	>=dev-libs/glib-2.40
-	>=net-libs/rest-0.7.91
 	dev-libs/json-glib
-	x11-libs/libnotify
-	dev-db/sqlite:3
-	>=net-libs/libsoup-2.42.3.1
 	>=dev-libs/libgee-0.8
-	gstreamer? ( media-libs/gst-plugins-base )"
+	gstreamer? ( media-libs/gst-plugins-base )
+	>=net-libs/libsoup-2.42.3.1
+	net-libs/rest:0.7
+	>=x11-libs/gtk+-3.12"
 DEPEND="${RDEPEND}
-	dev-lang/vala:0.24"
-VALA_MIN_API_VERSION="0.24"
-
-AUTOTOOLS_IN_SOURCE_BUILD=1
+	$(vala_depend)
+	virtual/pkgconfig"
 
 src_prepare() {
-	vala_src_prepare
 	eautoreconf
+	vala_src_prepare
 }
 
 src_configure() {
-	local myeconfargs=(
-		"--disable-schemas-compile"
-		$(use_enable debug)
-		$(use_enable glade catalog)
-		$(use_enable gstreamer video)
-	)
-	autotools-utils_src_configure
-}
+	cb_conf="$(use_enable debug ) \
+		$(use_enable glade catalog )"
 
-src_compile() {
-	autotools-utils_src_compile
-}
+	if ! use gstreamer ; then
+		cb_conf+="
+		$(use_enable gstreamer video )"
+	fi
 
-src_install() {
-	autotools-utils_src_install
+	econf ${cb_conf}
 }
 
 pkg_preinst() {
