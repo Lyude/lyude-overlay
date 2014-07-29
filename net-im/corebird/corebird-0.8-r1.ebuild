@@ -23,7 +23,7 @@ RDEPEND="dev-db/sqlite:3
 	>=dev-libs/libgee-0.8
 	gstreamer? ( media-libs/gst-plugins-base )
 	>=net-libs/libsoup-2.42.3.1
-	net-libs/rest:0.7
+	>=net-libs/rest-0.7.91
 	>=x11-libs/gtk+-3.12"
 DEPEND="${RDEPEND}
 	$(vala_depend)
