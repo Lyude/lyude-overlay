@@ -13,7 +13,7 @@ HOMEPAGE="http://corebird.baedert.org/"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug glade gstreamer"
+IUSE="debug gstreamer"
 
 RDEPEND=">=x11-libs/gtk+-3.12
 	>=dev-libs/glib-2.40
@@ -39,7 +39,6 @@ src_configure() {
 	local myeconfargs=(
 		"--disable-schemas-compile"
 		$(use_enable debug)
-		$(use_enable glade catalog)
 		$(use_enable gstreamer video)
 	)
 	autotools-utils_src_configure
