@@ -13,7 +13,7 @@ HOMEPAGE="http://corebird.baedert.org/"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug gstreamer"
+IUSE="debug nls gstreamer"
 
 RDEPEND=">=x11-libs/gtk+-3.12
 	>=dev-libs/glib-2.40
@@ -40,6 +40,7 @@ src_configure() {
 		"--disable-schemas-compile"
 		$(use_enable debug)
 		$(use_enable gstreamer video)
+		$(use_enable nls)
 	)
 	autotools-utils_src_configure
 }
