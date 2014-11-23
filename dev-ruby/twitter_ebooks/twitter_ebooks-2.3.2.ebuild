@@ -5,25 +5,20 @@
 EAPI=5
 USE_RUBY="ruby19 ruby20 ruby21"
 
-EGIT_REPO_URI="https://github.com/mispy/twitter_ebooks.git"
-
-inherit ruby-fakegem git-r3
-
-# This is a git ebuild, we shouldn't have a SRC_URI
-SRC_URI=""
+inherit ruby-fakegem
 
 DESCRIPTION="Framework for writing ebooks bots for Twitter"
 HOMEPAGE="https://github.com/mispy/twitter_ebooks"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 RUBY_S="${P}"
 
 ruby_add_rdepend "
-	dev-ruby/twitter:5
+	dev-ruby/twitter:4
 	dev-ruby/highscore
 	dev-ruby/gingerice
 	dev-ruby/rufus-scheduler
@@ -31,15 +26,8 @@ ruby_add_rdepend "
 	dev-ruby/engtagger
 	dev-ruby/htmlentities
 	>=dev-ruby/eventmachine-1.0.3
-	dev-ruby/simple_oauth"
-
-src_unpack() {
-	git-r3_src_unpack
-	ruby-ng_src_unpack
-
-	# Move the files we got from git to the proper ruby directory
-	mv ${WORKDIR}/${P} ${WORKDIR}/all/
-}
+	=dev-ruby/simple_oauth-0.2.0*
+	dev-ruby/tweetstream"
 
 src_prepare() {
 	ruby-ng_src_prepare
@@ -50,6 +38,6 @@ src_prepare() {
 
 each_ruby_install() {
 	each_fakegem_install
-	ruby_fakegem_doins -r skeleton
+	ruby_fakegem_doins -r skeleton data
 }
 
