@@ -9,7 +9,6 @@ inherit ruby-fakegem
 
 DESCRIPTION="Easily find and rank keywords in long texts"
 HOMEPAGE="https://github.com/domnikl/highscore"
-SRC_URI="https://github.com/domnikl/highscore/archive/1.2.0.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

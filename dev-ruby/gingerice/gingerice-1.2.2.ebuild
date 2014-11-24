@@ -9,7 +9,6 @@ inherit ruby-fakegem
 
 DESCRIPTION="Ruby wrapper of Ginger Proofreader"
 HOMEPAGE="https://github.com/subosito/gingerice"
-SRC_URI="https://github.com/subosito/gingerice/archive/v1.2.2.tar.gz -> ${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"

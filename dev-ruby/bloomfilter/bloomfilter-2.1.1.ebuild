@@ -12,7 +12,6 @@ inherit multilib ruby-fakegem
 
 DESCRIPTION="Bloom Filter implementation for Ruby"
 HOMEPAGE="https://github.com/igrigorik/bloomfilter-rb"
-SRC_URI="https://github.com/igrigorik/bloomfilter-rb/archive/v2.1.1.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

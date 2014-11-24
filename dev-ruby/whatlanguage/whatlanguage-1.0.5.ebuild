@@ -9,7 +9,6 @@ inherit ruby-fakegem
 
 DESCRIPTION="Fast text language detection for Ruby"
 HOMEPAGE="https://github.com/peterc/whatlanguage"
-SRC_URI="https://github.com/peterc/whatlanguage/archive/v1.0.5.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

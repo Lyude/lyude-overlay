@@ -9,7 +9,6 @@ inherit ruby-fakegem
 
 DESCRIPTION="English Part-of-Speech Tagger Library"
 HOMEPAGE="https://github.com/yohasebe/engtagger"
-SRC_URI="https://github.com/yohasebe/engtagger/archive/v0.2.0.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

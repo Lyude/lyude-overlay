@@ -9,7 +9,6 @@ inherit ruby-fakegem
 
 DESCRIPTION="Job scheduler for Ruby"
 HOMEPAGE="https://github.com/jmettraux/rufus-scheduler"
-SRC_URI="https://github.com/jmettraux/rufus-scheduler/archive/v3.0.9.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
