@@ -14,3 +14,7 @@ LICENSE=""
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~ppc ~ppc64 ~arm ~hppa ~ia64 ~m68k ~mips ~s390 ~sh ~sparc"
 IUSE=""
+
+ruby_add_rdepend "
+	dev-ruby/awesome_print
+	dev-ruby/addressable"
