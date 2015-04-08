@@ -18,7 +18,7 @@ HOMEPAGE="http://corebird.baedert.org/"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug gstreamer"
+IUSE="debug gstreamer spell"
 
 RDEPEND="dev-db/sqlite:3
 	>=dev-libs/glib-2.40:2
@@ -27,7 +27,8 @@ RDEPEND="dev-db/sqlite:3
 	gstreamer? ( media-plugins/gst-plugins-meta:1.0[X,ffmpeg] )
 	>=net-libs/libsoup-2.42.3.1
 	>=net-libs/rest-0.7.91:0.7
-	>=x11-libs/gtk+-3.12:3"
+	>=x11-libs/gtk+-3.12:3
+	spell? ( app-text/gtkspell:3[vala] )"
 DEPEND="${RDEPEND}
 	$(vala_depend)
 	>=dev-util/intltool-0.40
@@ -48,6 +49,7 @@ src_prepare() {
 src_configure() {
 	local myeconfargs=(
 		$(usex gstreamer "" --disable-video)
+		$(usex spell "" --disable-spell-check)
 	)
 	gnome2_src_configure "${myeconfargs[@]}"
 }
